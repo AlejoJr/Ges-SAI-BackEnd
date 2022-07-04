@@ -1,10 +1,21 @@
-import os
-from os.path import dirname, abspath, basename
+from os.path import dirname, abspath, basename, join
 from pathlib import Path
 from sys import path
 
-import ldap
-from django_auth_ldap.config import LDAPSearch
+
+from os import environ
+from django.core.exceptions import ImproperlyConfigured
+
+
+def get_env_setting(setting):
+    """Obtener la variable de entorno o retornar excepcion
+    :param setting
+    """
+    try:
+        return environ[setting]
+    except KeyError:
+        error_msg = "Set the %s env variable" % setting
+        raise ImproperlyConfigured(error_msg)
 
 ALLOWED_HOSTS = []
 
@@ -141,9 +152,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+STATICFILES_DIRS = [join(SITE_ROOT, "static")]
 MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static')
+MEDIA_ROOT = join(SITE_ROOT, 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

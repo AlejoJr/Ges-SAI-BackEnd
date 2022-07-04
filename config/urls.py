@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import include, path, re_path
 from rest_framework.documentation import include_docs_urls
 from django.conf import settings
 from django.conf.urls.static import static
@@ -11,7 +11,7 @@ urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('docs/', include_docs_urls(title='GesSAI API')),
     path('api-auth/', include('rest_framework.urls'), name='rest_framework'),
-    url(r'^download/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
+    re_path(r'^download/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
 
     # Rutas de la API
     path('gessaiapi/v1/', include('config.router'), name='base_api'),
