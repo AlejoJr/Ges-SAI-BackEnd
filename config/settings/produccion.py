@@ -15,16 +15,16 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'bdgessai',
-        'USER': 'root',
-        'PASSWORD': 'd1n4m1kjr',  # get_env_setting('DB_MYSQL_PASSWORD'),
+        'USER': 'admin_sai',
+        'PASSWORD': get_env_setting('DB_MYSQL_PASSWORD'),
         'HOST': 'localhost',
         'PORT': '3306',
     },
     'bdoracle': {
         'ENGINE': 'django.db.backends.oracle',
-        'NAME': 'webdepto',
-        'USER': 'webcario',
-        'PASSWORD': 'w3bc4r10p4t4c0n4',  # get_env_setting('DB_ORACLE_PASSWORD'),
+        'NAME': 'bddsic',
+        'USER': 'wdjango',
+        'PASSWORD': get_env_setting('DB_ORACLE_PASSWORD'),
         'HOST': '',
         'PORT': '',
     }
