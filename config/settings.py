@@ -12,8 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 from pathlib import Path
 
-import ldap
-from django_auth_ldap.config import LDAPSearch
+#import ldap
+#from django_auth_ldap.config import LDAPSearch
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
@@ -46,8 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
-    'django_crontab',
-    'corsheaders',
+    #'django_crontab',
+    #'corsheaders',
     'apps.host',
     'apps.pool',
     'apps.sai',
